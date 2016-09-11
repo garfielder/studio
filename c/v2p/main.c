@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
-
 #include "stdio.h"
 #include "unistd.h"
 #include "inttypes.h"
 
+
+// copyied from http://stackoverflow.com/questions/12040303/accessing-physical-address-from-user-space
 uintptr_t vtop(uintptr_t vaddr) {
     FILE *pagemap;
     intptr_t paddr = 0;
