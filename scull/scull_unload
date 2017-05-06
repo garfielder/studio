@@ -1,9 +1,0 @@
-#!/bin/sh
-
-module="scull"
-device="scull"
-
-
-# Invoke rmmod
-rmmod scull.ko
-rm /dev/${device}*
