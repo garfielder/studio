@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Uncomment the following two lines for normal desktop:
+# unset SESSION_MANAGER
+# exec /etc/X11/xinit/xinitrc
+
+# [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+# xsetroot -solid grey
+# vncconfig -iconic &
+# xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+# twm &
+# xset s off&
+
+
+#xset +fp /usr/X11R6/lib/X11/fonts/100dpi
+#tool/pandora/bin/icewm
+
+
+#/tool/pandora/bin/xmodmap /home/jcoiner/home/.xmodmap.awesome_mod4
+
+exec /home/richli/bin/dwm&
+#exec gnome-session
+# exec /tool/pandora/.package/awesome-3.4.9/bin/awesome&
