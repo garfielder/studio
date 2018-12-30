@@ -18,6 +18,23 @@ resFile = "res.txt"
 priority = open("priority.txt", "r").read().split()
 print priority
 #sys.exit(0)
+INV_VAL = 0XFFFF
+def getkey(inputStr):
+    for item in priority:
+        ind = priority.index(item)
+        if inputStr.find(item) != -1:
+            return priority.index(item)  
+    return INV_VAL;
+
+
+###
+# The list can sort with my algorighm
+# if yes or no
+def CanSort(arr):
+    for a in arr:
+        if getkey(a) == INV_VAL:
+            return False
+    return True
 
 
 fpRes = open(resFile, "w")
@@ -45,10 +62,18 @@ for root in  rootdirs:
                     
 
 for fname in files:
+    alternatives = files[fname]
+    alternatives = sorted(alternatives, key=getkey)
     oneline = ""
-    if (len (files[fname]) > 1):
-        for file in files[fname]:
-            oneline += file + "\t\t"
+    if (len (alternatives) > 1):
+        for file in alternatives:
+            if (alternatives.index(file) > 0):
+                oneline += "echo " + file + "\n"
+                oneline += "del " + file + "\n"
+                os.remove(file)
+            else:
+                oneline += "keep " + file + "\n"
+
     print >>fpRes, oneline
 fpRes.close()
 
